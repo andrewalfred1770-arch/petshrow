@@ -1,0 +1,16 @@
+{
+  "name": "petshrow",
+  "version": "0.1.0",
+  "description": "Petshrow — Job Management & Imposition Suite for high-end printing press",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

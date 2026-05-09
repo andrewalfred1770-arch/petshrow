@@ -1,0 +1,309 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   Petshrow — Light Theme  (White / Slate + Orange brand + Navy accent)
+   All custom components sit on top of Tailwind utility classes.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+html, body { font-family: 'Cairo', system-ui, sans-serif; }
+
+/* ── Scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar               { width: 6px; height: 6px; }
+::-webkit-scrollbar-track         { background: #f1f5f9; }
+::-webkit-scrollbar-thumb         { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover   { background: #94a3b8; }
+
+/* ── Sidebar nav buttons ─────────────────────────────────────────────
+   Sidebar background is navy-900 (#152844), so text is white/light.    */
+.nav-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.6rem;
+  color: #93a8c4;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: right;
+  transition: background-color .15s, color .15s;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+.nav-btn.active {
+  background: #f59e0b;
+  color: #152844;
+  border-color: transparent;
+  font-weight: 700;
+}
+.nav-btn.active .nav-icon { filter: none; }
+.nav-icon { width: 1.4rem; text-align: center; font-size: 1.05rem; }
+
+/* ── Sidebar preset chips ──────────────────────────────────────────── */
+.preset-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.45rem 0.6rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 0.5rem;
+  font-size: 0.76rem;
+  color: #c3d4f4;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s;
+  width: 100%;
+}
+.preset-chip:hover {
+  border-color: #f59e0b;
+  background: rgba(245,158,11,.15);
+  color: #fbbf24;
+}
+.preset-chip .name { font-weight: 700; font-size: 0.8rem; }
+.preset-chip .dim  { color: #7a9cbf; font-size: 0.68rem; margin-top: 1px; direction: ltr; }
+
+/* ── Main panels (white cards) ─────────────────────────────────────── */
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 0 0 0 transparent;
+}
+.panel-h {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fafbfc;
+  border-radius: 0.9rem 0.9rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panel-h h2 { color: #152844; font-weight: 700; }
+.panel-b { padding: 1.1rem; }
+
+/* ── Field / label / input ─────────────────────────────────────────── */
+.field label {
+  display: block;
+  font-size: 0.77rem;
+  color: #64748b;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.field input,
+.field select {
+  width: 100%;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 0.52rem 0.75rem;
+  font-size: 0.88rem;
+  font-family: 'Cairo', sans-serif;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none;
+}
+.field input:focus,
+.field select:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245,158,11,.18);
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 0.75rem center;
+  padding-left: 2rem;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.52rem 1rem;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  transition: transform .08s, filter .15s, box-shadow .15s;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  color: #fff;
+  border-color: #b45309;
+  box-shadow: 0 2px 6px rgba(245,158,11,.35);
+}
+.btn-primary:hover { filter: brightness(1.06); box-shadow: 0 4px 12px rgba(245,158,11,.4); }
+
+.btn-navy {
+  background: #152844;
+  color: #fff;
+  border-color: #0d1b2e;
+}
+.btn-navy:hover { background: #1e3a5f; }
+
+.btn-ghost {
+  background: #fff;
+  color: #152844;
+  border-color: #e2e8f0;
+}
+.btn-ghost:hover { background: #f8fafc; border-color: #cbd5e1; }
+
+.btn-danger {
+  background: #fff;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+.btn-danger:hover { background: #fef2f2; }
+
+/* ── KPI cards ─────────────────────────────────────────────────────── */
+.kpi {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-top: 3px solid #cbd5e1;
+  border-radius: 0.7rem;
+  padding: 0.85rem 0.9rem;
+  transition: box-shadow .15s;
+}
+.kpi:hover { box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+.kpi.highlight { border-top-color: #f59e0b; background: #fffbeb; }
+
+.kpi .label {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.kpi .value {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #152844;
+  direction: ltr;
+  text-align: right;
+  line-height: 1.1;
+}
+.kpi.highlight .value { color: #d97706; }
+.kpi .sub {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-top: 3px;
+  direction: ltr;
+  text-align: right;
+}
+
+/* ── Section page titles ───────────────────────────────────────────── */
+.page-title { font-size: 1.6rem; font-weight: 900; color: #152844; }
+.page-sub   { font-size: 0.84rem; color: #64748b; margin-top: 0.2rem; }
+
+/* ── Imposition / die-cut SVG preview wrapper ──────────────────────── */
+.impose-wrap {
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.impose-wrap svg { max-width: 100%; height: auto; display: block; }
+
+/* ── Error/info banners ────────────────────────────────────────────── */
+.alert-error {
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 0.84rem;
+  margin-bottom: 0.85rem;
+}
+
+/* ── Jobs table ────────────────────────────────────────────────────── */
+.jobs-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.jobs-table th {
+  text-align: right;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #64748b;
+  border-bottom: 2px solid #f1f5f9;
+}
+.jobs-table td {
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+.jobs-table tr:hover td { background: #fafbff; }
+
+/* ── Module badge pill ─────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.badge-notebooks { background: #fef3c7; color: #92400e; }
+.badge-boxes      { background: #dbeafe; color: #1e40af; }
+.badge-cards      { background: #d1fae5; color: #065f46; }
+.badge-stickers   { background: #ede9fe; color: #5b21b6; }
+
+/* ── Toast ─────────────────────────────────────────────────────────── */
+#toast.show   { display: block !important; animation: toastIn .22s ease both; }
+#toast.t-ok   { background:#f0fdf4; border-color:#86efac; color:#166534; }
+#toast.t-err  { background:#fef2f2; border-color:#fca5a5; color:#991b1b; }
+#toast.t-info { background:#fff;    border-color:#e2e8f0; color:#334155; }
+@keyframes toastIn { from { transform:translateY(8px); opacity:0 } to { transform:translateY(0); opacity:1 } }
+
+/* ── Mobile sidebar overlay ────────────────────────────────────────── */
+#sidebar.open { transform: translateX(0) !important; box-shadow: -12px 0 40px rgba(0,0,0,.25); }
+
+/* ── Responsive helpers ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-title { font-size: 1.25rem; }
+  .kpi .value { font-size: 1.2rem; }
+}
+
+/* ── Production-size chips (مقاسات شائعة) ─────────────────────────── */
+.size-chip {
+  padding: 0.22rem 0.55rem;
+  border-radius: 0.35rem;
+  font-size: 0.7rem;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  cursor: pointer;
+  transition: border-color .12s, background .12s, color .12s;
+  direction: ltr;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.size-chip:hover {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  color: #92400e;
+}
+.size-chip.active {
+  border-color: #d97706;
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ── 3-D box faces — light palette ────────────────────────────────── */
+.ps-face-front  { background: rgba(245,158,11,.12) !important; border-color: rgba(217,119,6,.6) !important; }
+.ps-face-side   { background: rgba(21,40,68,.08)   !important; border-color: rgba(21,40,68,.4)  !important; }
+.ps-face-top    { background: rgba(21,40,68,.16)   !important; border-color: rgba(21,40,68,.6)  !important; }

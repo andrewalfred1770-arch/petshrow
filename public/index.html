@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petshrow — نظام إدارة المطبعة</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Cairo', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:  '#fffbeb',
+              100: '#fef3c7',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            navy: {
+              50:  '#f0f4ff',
+              100: '#dbe8ff',
+              200: '#c3d4f4',
+              600: '#2d4f8a',
+              700: '#1d3461',
+              800: '#1e3a5f',
+              900: '#152844',
+              950: '#0d1b2e',
+            },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen">
+
+  <!-- ═══ TOP BAR ════════════════════════════════════════════════════════ -->
+  <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-30">
+    <div class="px-4 md:px-6 h-14 flex items-center justify-between">
+
+      <!-- Logo + hamburger -->
+      <div class="flex items-center gap-3">
+        <button id="btnSidebar" class="md:hidden p-2 rounded-lg hover:bg-slate-100 text-slate-600" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 grid place-items-center font-black text-white text-lg shadow-sm">P</div>
+          <div class="leading-tight">
+            <div class="font-extrabold text-lg text-navy-900 tracking-tight">Petshrow</div>
+            <div class="text-[11px] text-slate-400 font-medium">نظام إدارة وتفريد الطباعة</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status bar -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-2 text-xs text-slate-500">
+          <span class="font-semibold text-slate-600">الجهاز:</span>
+          <span id="deviceLabel" class="px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 font-semibold">—</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="الخادم متصل"></span>
+          <span class="text-xs text-emerald-600 font-semibold hidden sm:inline">متصل</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ LAYOUT ════════════════════════════════════════════════════════ -->
+  <div class="flex min-h-[calc(100vh-3.5rem)]">
+
+    <!-- Sidebar — Navy Blue -->
+    <aside id="sidebar"
+      class="fixed md:static inset-y-0 right-0 z-40 w-72 bg-navy-900
+             transform translate-x-full md:translate-x-0 transition-transform duration-200
+             flex flex-col">
+
+      <!-- Nav -->
+      <nav class="p-4 flex-1 overflow-y-auto">
+        <div class="text-[10px] uppercase tracking-widest text-navy-600 font-bold px-3 mb-3">الأقسام الرئيسية</div>
+        <div class="space-y-1">
+          <button class="nav-btn active" data-route="notebooks">
+            <span class="nav-icon">📓</span><span>سجلات ودفاتر</span>
+          </button>
+          <button class="nav-btn" data-route="boxes">
+            <span class="nav-icon">📦</span><span>أمبلاجات وعُلب</span>
+          </button>
+          <button class="nav-btn" data-route="cards">
+            <span class="nav-icon">💳</span><span>كروت وفلايرات</span>
+          </button>
+          <button class="nav-btn" data-route="stickers">
+            <span class="nav-icon">🏷️</span><span>استيكرات ومنوعات</span>
+          </button>
+          <button class="nav-btn" data-route="jobs">
+            <span class="nav-icon">🗂️</span><span>تذاكر الأعمال</span>
+          </button>
+        </div>
+
+      </nav>
+
+      <!-- Footer -->
+      <div class="p-4 border-t border-navy-800 text-[11px] text-navy-600 leading-relaxed">
+        شارك رابط الـ IP مع أي جهاز على نفس الشبكة للوصول المشترك.
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 p-4 md:p-6 max-w-[1400px] mx-auto w-full overflow-x-hidden">
+      <div id="moduleRoot"></div>
+    </main>
+  </div>
+
+  <!-- Mobile sidebar overlay -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="fixed bottom-6 left-6 z-50 hidden px-4 py-3 rounded-xl shadow-xl border text-sm font-semibold"></div>
+
+  <script src="js/standards.js"></script>
+  <script src="js/notebooks.js"></script>
+  <script src="js/boxes.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/stickers.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petshrow — نظام إدارة المطبعة</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Cairo', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:  '#fffbeb',
+              100: '#fef3c7',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            navy: {
+              50:  '#f0f4ff',
+              100: '#dbe8ff',
+              200: '#c3d4f4',
+              600: '#2d4f8a',
+              700: '#1d3461',
+              800: '#1e3a5f',
+              900: '#152844',
+              950: '#0d1b2e',
+            },
+          },
+        },
+      },
+    };
+  </script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Cairo, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.sticky{position:sticky}.inset-0{inset:0px}.inset-y-0{top:0px;bottom:0px}.bottom-6{bottom:1.5rem}.left-6{left:1.5rem}.right-0{right:0px}.top-0{top:0px}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.col-span-2{grid-column:span 2 / span 2}.mx-auto{margin-left:auto;margin-right:auto}.mb-3{margin-bottom:0.75rem}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-5{margin-bottom:1.25rem}.mt-5{margin-top:1.25rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-5{height:1.25rem}.h-9{height:2.25rem}.h-11{height:2.75rem}.min-h-\[calc\(100vh-3\.5rem\)\]{min-height:calc(100vh - 3.5rem)}.min-h-screen{min-height:100vh}.w-2{width:0.5rem}.w-5{width:1.25rem}.w-72{width:18rem}.w-9{width:2.25rem}.w-full{width:100%}.w-11{width:2.75rem}.max-w-\[1400px\]{max-width:1400px}.flex-1{flex:1 1 0%}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-1{gap:0.25rem}.gap-5{gap:1.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-navy-800{--tw-border-opacity:1;border-color:rgb(30 58 95 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-brand-100{--tw-border-opacity:1;border-color:rgb(254 243 199 / var(--tw-border-opacity, 1))}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-navy-900{--tw-bg-opacity:1;background-color:rgb(21 40 68 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-brand-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-brand-700{--tw-gradient-to:#b45309 var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-4{padding:1rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.font-sans{font-family:Cairo, system-ui, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-navy-600{--tw-text-opacity:1;color:rgb(45 79 138 / var(--tw-text-opacity, 1))}.text-navy-900{--tw-text-opacity:1;color:rgb(21 40 68 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-navy-800{--tw-text-opacity:1;color:rgb(30 58 95 / var(--tw-text-opacity, 1))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:flex{display:flex}}@media (min-width: 768px){.md\:static{position:static}.md\:hidden{display:none}.md\:translate-x-0{--tw-translate-x:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:p-6{padding:1.5rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:col-span-3{grid-column:span 3 / span 3}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}}</style></head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen">
+
+  <!-- ═══ TOP BAR ════════════════════════════════════════════════════════ -->
+  <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-30">
+    <div class="px-4 md:px-6 h-14 flex items-center justify-between">
+
+      <!-- Logo + hamburger -->
+      <div class="flex items-center gap-3">
+        <button id="btnSidebar" class="md:hidden p-2 rounded-lg hover:bg-slate-100 text-slate-600" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 grid place-items-center font-black text-white text-lg shadow-sm">P</div>
+          <div class="leading-tight">
+            <div class="font-extrabold text-lg text-navy-900 tracking-tight">Petshrow</div>
+            <div class="text-[11px] text-slate-400 font-medium">نظام إدارة وتفريد الطباعة</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status bar -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-2 text-xs text-slate-500">
+          <span class="font-semibold text-slate-600">الجهاز:</span>
+          <span id="deviceLabel" class="px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 font-semibold">كمبيوتر · localhost:3000</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="الخادم متصل"></span>
+          <span class="text-xs text-emerald-600 font-semibold hidden sm:inline">متصل</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ LAYOUT ════════════════════════════════════════════════════════ -->
+  <div class="flex min-h-[calc(100vh-3.5rem)]">
+
+    <!-- Sidebar — Navy Blue -->
+    <aside id="sidebar" class="fixed md:static inset-y-0 right-0 z-40 w-72 bg-navy-900 transform translate-x-full md:translate-x-0 transition-transform duration-200 flex flex-col">
+
+      <!-- Nav -->
+      <nav class="p-4 flex-1 overflow-y-auto">
+        <div class="text-[10px] uppercase tracking-widest text-navy-600 font-bold px-3 mb-3">الأقسام الرئيسية</div>
+        <div class="space-y-1">
+          <button class="nav-btn active" data-route="notebooks">
+            <span class="nav-icon">📓</span><span>سجلات ودفاتر</span>
+          </button>
+          <button class="nav-btn" data-route="boxes">
+            <span class="nav-icon">📦</span><span>أمبلاجات وعُلب</span>
+          </button>
+          <button class="nav-btn" data-route="cards">
+            <span class="nav-icon">💳</span><span>كروت وفلايرات</span>
+          </button>
+          <button class="nav-btn" data-route="stickers">
+            <span class="nav-icon">🏷️</span><span>استيكرات ومنوعات</span>
+          </button>
+          <button class="nav-btn" data-route="jobs">
+            <span class="nav-icon">🗂️</span><span>تذاكر الأعمال</span>
+          </button>
+        </div>
+
+      </nav>
+
+      <!-- Footer -->
+      <div class="p-4 border-t border-navy-800 text-[11px] text-navy-600 leading-relaxed">
+        شارك رابط الـ IP مع أي جهاز على نفس الشبكة للوصول المشترك.
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 p-4 md:p-6 max-w-[1400px] mx-auto w-full overflow-x-hidden">
+      <div id="moduleRoot">
+      
+      <div class="flex items-start justify-between mb-5 gap-3 flex-wrap">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-brand-50 border border-brand-100 grid place-items-center text-2xl">📓</div>
+          <div>
+            <h1 class="page-title">سجلات ودفاتر</h1>
+            <p class="page-sub">احسب عدد الأفرخ والملازم والهالك بدقة احترافية.</p>
+          </div>
+        </div>
+        <div class="flex gap-2 items-center"><button id="nb-save" class="btn btn-primary">💾 حفظ كتذكرة</button>
+         <button id="nb-reset" class="btn btn-ghost">تفريغ</button></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
+
+        <!-- ── Inputs ── -->
+        <section class="panel lg:col-span-2">
+          <div class="panel-h">
+            <h2>المدخلات</h2>
+            <span class="text-xs text-slate-400">المقاسات بالسم</span>
+          </div>
+          <div class="panel-b grid grid-cols-2 gap-3">
+            <div class="field col-span-2">
+              <label>اسم العمل</label>
+              <input id="nb-title" type="text" placeholder="مثال: سجل — 70 دفتر">
+            </div>
+            <div class="field">
+              <label>عدد الدفاتر</label>
+              <input id="nb-count" type="number" min="1" value="70">
+            </div>
+            <div class="field">
+              <label>صفحات / دفتر</label>
+              <input id="nb-pages" type="number" min="1" value="97">
+            </div>
+            <div class="field">
+              <label>عرض الفرخ (سم)</label>
+              <input id="nb-sheet-w" type="number" min="1" step="0.5" value="48">
+            </div>
+            <div class="field">
+              <label>ارتفاع الفرخ (سم)</label>
+              <input id="nb-sheet-h" type="number" min="1" step="0.5" value="33">
+            </div>
+            <div class="field col-span-2">
+              <label class="block mb-1" style="font-size:0.72rem;color:#94a3b8;font-weight:600;letter-spacing:.02em;">مقاسات شائعة للفرخ</label>
+              <div class="flex flex-wrap gap-1">
+                <button class="size-chip nb-sz" data-w="35" data-h="25">35×25</button>
+                <button class="size-chip nb-sz" data-w="44" data-h="33">44×33</button>
+                <button class="size-chip nb-sz" data-w="48" data-h="33">48×33</button>
+                <button class="size-chip nb-sz" data-w="50" data-h="35">50×35</button>
+                <button class="size-chip nb-sz" data-w="60" data-h="45">60×45</button>
+                <button class="size-chip nb-sz" data-w="65" data-h="50">65×50</button>
+                <button class="size-chip nb-sz" data-w="60" data-h="90">60×90</button>
+                <button class="size-chip nb-sz" data-w="70" data-h="100">70×100</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>عرض الصفحة (سم)</label>
+              <input id="nb-page-w" type="number" min="0.5" step="0.5" value="10.5">
+            </div>
+            <div class="field">
+              <label>ارتفاع الصفحة (سم)</label>
+              <input id="nb-page-h" type="number" min="0.5" step="0.5" value="14.8">
+            </div>
+            <div class="field">
+              <label>الهالك %</label>
+              <input id="nb-waste" type="number" min="0" step="0.5" value="5">
+            </div>
+            <div class="field">
+              <label>جريبر (سم)</label>
+              <input id="nb-gripper" type="number" min="0" step="0.1" value="1">
+            </div>
+            <div class="field">
+              <label>نزف (سم)</label>
+              <input id="nb-bleed" type="number" min="0" step="0.1" value="0">
+            </div>
+            <div class="field">
+              <label>مسافة بين الصفحات (سم)</label>
+              <input id="nb-gutter" type="number" min="0" step="0.1" value="0">
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Results ── -->
+        <section class="panel lg:col-span-3">
+          <div class="panel-h">
+            <h2>النتائج</h2>
+            <span id="nb-orient" class="text-xs text-slate-400 font-mono">3×3 · مقلوب 90°</span>
+          </div>
+          <div class="panel-b">
+            <div id="nb-errors"></div>
+            <div id="nb-kpis"><div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      
+        <div class="kpi">
+          <div class="label">صفحات / وجه</div>
+          <div class="value">9</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">صفحات / فرخ</div>
+          <div class="value">18</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">حجم الملزمة (ص)</div>
+          <div class="value">16</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">ملازم / دفتر</div>
+          <div class="value">7</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">صفحات بيضاء / دفتر</div>
+          <div class="value">15</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">أفرخ / دفتر</div>
+          <div class="value">7</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">إجمالي الأفرخ (نظري)</div>
+          <div class="value">490</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">الهالك (أفرخ)</div>
+          <div class="value">25</div>
+          
+        </div>
+        <div class="kpi highlight">
+          <div class="label">الإجمالي مع الهالك</div>
+          <div class="value">515</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">توجيه</div>
+          <div class="value">مقلوب 90°</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">استخدام الفرخ</div>
+          <div class="value">88.3%</div>
+          
+        </div>
+        <div class="kpi">
+          <div class="label">هالك مساحة (سم²)</div>
+          <div class="value">185.40</div>
+          
+        </div>
+    </div></div>
+            <div class="mt-5">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-bold text-navy-800">معاينة التفريد على الفرخ</h3>
+                <span id="nb-meta" class="text-[11px] text-slate-400 font-mono">فرخ 33×48سم · صفحة 14.8×10.5سم · ملزمة 16ص</span>
+              </div>
+              <div id="nb-impose" class="impose-wrap" style="min-height:250px">
+      <svg viewBox="0 0 66 51" width="100%" preserveAspectRatio="xMidYMid meet">
+        <!-- Paper shadow -->
+        <rect x="9.5" y="9.5" width="48" height="33" fill="rgba(0,0,0,0.03)" rx="1"></rect>
+        <!-- Sheet — white paper -->
+        <rect x="9" y="9" width="48" height="33" fill="white" stroke="#dde3ec" stroke-width="0.38" rx="0.8"></rect>
+        <rect x="9" y="9" width="48" height="1" fill="rgba(239,68,68,.05)" stroke="rgba(239,68,68,.28)" stroke-dasharray="0.357 0.238" stroke-width="0.26" rx="0.2"></rect>
+         <text x="9.8" y="9.56" font-size="0.595" fill="#ef4444" opacity="0.65">جريبر 1سم</text>
+        
+        <rect x="9" y="10" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="16.4" y1="10" x2="16.4" y2="20.5" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="16.4" y="15.25" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">1</text><rect x="23.8" y="10" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="31.200000000000003" y1="10" x2="31.200000000000003" y2="20.5" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="31.200000000000003" y="15.25" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">2</text><rect x="38.6" y="10" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="46" y1="10" x2="46" y2="20.5" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="46" y="15.25" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">3</text><rect x="9" y="20.5" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="16.4" y1="20.5" x2="16.4" y2="31" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="16.4" y="25.75" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">4</text><rect x="23.8" y="20.5" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="31.200000000000003" y1="20.5" x2="31.200000000000003" y2="31" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="31.200000000000003" y="25.75" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">5</text><rect x="38.6" y="20.5" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="46" y1="20.5" x2="46" y2="31" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="46" y="25.75" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">6</text><rect x="9" y="31" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="16.4" y1="31" x2="16.4" y2="41.5" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="16.4" y="36.25" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">7</text><rect x="23.8" y="31" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="31.200000000000003" y1="31" x2="31.200000000000003" y2="41.5" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="31.200000000000003" y="36.25" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">8</text><rect x="38.6" y="31" width="14.8" height="10.5" fill="rgba(245,158,11,.08)" stroke="#dfa030" stroke-width="0.28" rx="0.22"></rect><line x1="46" y1="31" x2="46" y2="41.5" stroke="#c08028" stroke-width="0.18" stroke-dasharray="1.3363636363636364 1.05" opacity="0.28"></line><text x="46" y="36.25" text-anchor="middle" dominant-baseline="middle" font-size="1.9090909090909092" fill="#92400e" font-weight="400" opacity="0.45">9</text>
+        <!-- Sheet border overlay -->
+        <rect x="9" y="9" width="48" height="33" fill="none" stroke="#94a3b8" stroke-width="0.26" rx="0.8"></rect>
+        <!-- Info label — H×W order per production convention -->
+        <text x="9" y="8.66" font-size="0.85" fill="#94a3b8" direction="ltr" font-family="monospace" font-weight="400">
+          3×3 = 9/وجه · مقلوب 90° · فرخ 33×48سم
+        </text>
+      </svg></div>
+            </div>
+          </div>
+        </section>
+      </div></div>
+    </main>
+  </div>
+
+  <!-- Mobile sidebar overlay -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 z-30 hidden md:hidden"></div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="fixed bottom-6 left-6 z-50 hidden px-4 py-3 rounded-xl shadow-xl border text-sm font-semibold"></div>
+
+  <script src="/js/standards.js"></script>
+  <script src="/js/notebooks.js"></script>
+  <script src="/js/boxes.js"></script>
+  <script src="/js/cards.js"></script>
+  <script src="/js/stickers.js"></script>
+  <script src="/js/app.js"></script>
+
+
+</body></html>

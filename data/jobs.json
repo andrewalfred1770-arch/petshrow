@@ -1,0 +1,90 @@
+[
+  {
+    "id": "job_063b94859442",
+    "createdAt": "2026-05-09T08:34:23.364Z",
+    "updatedAt": "2026-05-09T08:34:23.364Z",
+    "module": "notebooks",
+    "title": "سجل A4 — 70 دفتر",
+    "input": {
+      "notebooks": 70,
+      "pagesPerNotebook": 97,
+      "page": {
+        "id": "A4",
+        "name": "A4",
+        "w": 210,
+        "h": 297
+      },
+      "sheet": {
+        "id": "S60x90",
+        "name": "60×90",
+        "w": 600,
+        "h": 900
+      },
+      "signaturePages": 16,
+      "wastePct": 5,
+      "gripper": 10,
+      "bleed": 0
+    },
+    "result": {
+      "input": {
+        "notebooks": 70,
+        "pagesPerNotebook": 97,
+        "page": {
+          "id": "A4",
+          "name": "A4",
+          "w": 210,
+          "h": 297
+        },
+        "sheet": {
+          "id": "S60x90",
+          "name": "60×90",
+          "w": 600,
+          "h": 900
+        },
+        "signaturePages": 16,
+        "wastePct": 5,
+        "gripper": 10,
+        "bleed": 0
+      },
+      "imposition": {
+        "cols": 2,
+        "rows": 4,
+        "perSide": 8,
+        "perSheet": 16,
+        "orientation": "landscape",
+        "usedW": 594,
+        "usedH": 840
+      },
+      "signatures": {
+        "sizePages": 16,
+        "perNotebook": 7,
+        "paddedPagesPerNotebook": 112,
+        "blankPages": 15
+      },
+      "sheets": {
+        "sheetsPerSignaturePerCopy": 1,
+        "sheetsPerNotebook": 7,
+        "baseSheets": 490,
+        "wasteSheets": 25,
+        "totalSheetsWithWaste": 515
+      },
+      "errors": []
+    }
+  },
+  {
+    "id": "job_fe04599166ad",
+    "createdAt": "2026-05-09T06:53:07.045Z",
+    "updatedAt": "2026-05-09T06:53:07.045Z",
+    "module": "notebooks",
+    "title": "??????: 70 ??? A4",
+    "input": {
+      "notebooks": 70,
+      "pagesPerNotebook": 97
+    },
+    "result": {
+      "sheets": {
+        "totalSheetsWithWaste": 515
+      }
+    }
+  }
+]
